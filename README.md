@@ -26,11 +26,12 @@
 
 | Agent | Success Rate | Final Score | Avg Wrong | Status |
 |-------|--------------|-------------|-----------|---------|
-| RL Agent | 19.90% | -55,302 | 5.570 | Baseline |
-| Improved Agent | 19.80% | -55,324 | 5.572 | Failed |
-| **Enhanced Agent** | **35.70%** | **-50,471** | **5.119** | ✅ **BEST** |
-| Optimized Agent | 31.95% | -51,561 | 5.220 | Over-complicated |
-| Fine-Tuned Agent | 35.70% | -50,521 | 5.123 | Same as Enhanced |
+| Original HMM | 19.80% | -55,324 | 5.572 | HMM Baseline |
+| RL + HMM | 19.90% | -55,302 | 5.570 | Hybrid Approach |
+| **Improved HMM** | **24.60%** | **-53,878** | **5.437** | ✅ **+24% over HMM** |
+| **Enhanced N-gram** | **35.70%** | **-50,471** | **5.119** | ✅ **BEST OVERALL** |
+| Optimized N-gram | 31.95% | -51,561 | 5.220 | Over-complicated |
+| Fine-Tuned N-gram | 35.70% | -50,521 | 5.123 | Same as Enhanced |
 
 ---
 
@@ -59,13 +60,16 @@ ML Hackathon/
 ├── Data/Data/
 │   ├── corpus.txt                 # 49,954 training words
 │   └── test.txt                   # 2,000 test words
-├── Enhanced_Strategy.ipynb        # 🏆 BEST SOLUTION
+├── Enhanced_Strategy.ipynb        # 🏆 BEST SOLUTION (35.7%)
+├── Improved_HMM.ipynb             # ✅ Enhanced HMM (24.6%)
 ├── Dataset_Analysis.ipynb         # Data preprocessing
-├── HMM_Training.ipynb             # HMM baseline
-├── RL_Agent.ipynb                 # Q-Learning baseline
+├── HMM_Training.ipynb             # HMM baseline (19.8%)
+├── RL_Agent.ipynb                 # Q-Learning baseline (19.9%)
 ├── Evaluation.ipynb               # Evaluation framework
-├── enhanced_agent.pkl             # Best model
-├── enhanced_results.txt           # Results
+├── enhanced_agent.pkl             # Best N-gram model
+├── improved_hmm_model.pkl         # Improved HMM model
+├── improved_hmm_results.png       # Visualization
+├── IMPROVED_HMM_RESULTS.md        # Detailed HMM results
 └── README.md                      # This file
 ```
 
@@ -82,12 +86,18 @@ ML Hackathon/
 - Found **100% bigram coverage**
 - **Insight:** Need character patterns, not word memorization!
 
-### Phase 3: Enhanced N-gram Solution (35.7%) ✅
+### Phase 3: Improved HMM with Transitions (24.6%)
+- Added **bigram** and **trigram** transition probabilities to HMM
+- Enhanced emission probabilities with Laplace smoothing
+- Adaptive weighting based on game state
+- **Result:** +24.2% improvement over baseline HMM!
+
+### Phase 4: Enhanced N-gram Solution (35.7%) ✅
 - **676 bigrams** + **8,148 trigrams**
 - Adaptive weighting by game state
-- **Result:** +79.4% improvement!
+- **Result:** +79.4% improvement over baseline!
 
-### Phase 4: Failed Optimizations
+### Phase 5: Failed Optimizations
 - Over-complicated → worse performance
 - **Lesson:** Simplicity wins!
 
