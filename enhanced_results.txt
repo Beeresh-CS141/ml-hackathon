@@ -1,0 +1,27 @@
+============================================================
+               ENHANCED AGENT EVALUATION
+============================================================
+
+Total Games: 2000
+Wins: 714 (35.70%)
+Total Wrong Guesses: 10237
+Avg Wrong Guesses: 5.119
+
+FINAL SCORE: -50471.00
+
+============================================================
+
+IMPROVEMENTS OVER PREVIOUS AGENTS:
+------------------------------------------------------------
+vs RL Agent: +4831 points
+vs Improved Agent: +4853 points
+
+============================================================
+
+KEY IMPROVEMENTS:
+------------------------------------------------------------
+1. N-gram model (bigrams, trigrams) for context
+2. Position-aware letter prediction
+3. Adaptive strategy based on game state
+4. Entropy-based letter selection
+5. Vowel/consonant balancing
